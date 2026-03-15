@@ -1,0 +1,53 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #020617; /* slate-950 */
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+.content-overlay {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+}
+.unique-v {
+    text-shadow: 0 0 20px rgba(52, 211, 153, 0.3);
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #34d399, #22d3ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hidden-view {
+    display: none !important;
+}
+
+.custom-scroll::-webkit-scrollbar { width: 6px; }
+.custom-scroll::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.1); }
+.custom-scroll::-webkit-scrollbar-thumb {
+    background: rgba(52, 211, 153, 0.2);
+    border-radius: 10px;
+}
+.custom-scroll::-webkit-scrollbar-thumb:hover { background: rgba(52, 211, 153, 0.4); }
+
+.topic-card:hover .topic-arrow { transform: translateX(5px); }
