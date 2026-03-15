@@ -1,5 +1,5 @@
 // --- API Configuration ---
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://data-v-7jah.onrender.com/api';
 
 // --- State Management ---
 let topicsState = [];

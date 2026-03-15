@@ -106,7 +106,7 @@ app.post('/api/topics/:id/data', upload.single('image'), async (req, res) => {
 
         const newDataItem = {
             name: req.body.name,
-            image: `http://localhost:5000/uploads/${req.file.filename}`
+            image: `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`
         };
         topic.dataItems.push(newDataItem);
         await topic.save();
