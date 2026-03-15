@@ -45,18 +45,28 @@ async function fetchTopics() {
 
 async function addTopic(name) {
     if (!name) return;
+    addTopicBtn.disabled = true;
+    addTopicBtn.innerText = '...';
+    
     try {
         const res = await fetch(`${API_URL}/topics`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name })
         });
+        
+        if (!res.ok) throw new Error('Failed to save topic');
+        
         const newTopic = await res.json();
         topicsState.push(newTopic);
         renderTopics();
         topicInput.value = '';
     } catch (err) {
         console.error('Error adding topic:', err);
+        alert('Action failed! Your database might be sleeping or blocking the connection. Please wait 10 seconds and try again.');
+    } finally {
+        addTopicBtn.disabled = false;
+        addTopicBtn.innerText = 'Add';
     }
 }
 
